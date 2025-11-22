@@ -17,6 +17,7 @@
         "livewire/volt": "^1.7.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
@@ -39,6 +40,10 @@
         }
     },
     "scripts": {
+        "ide": [
+            "@php artisan ide-helper:models -R --dir=app --dir=Modules",
+            "composer dump-autoload"
+        ],
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
