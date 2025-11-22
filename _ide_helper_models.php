@@ -81,6 +81,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\CarModel|null $carModel
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ClientNote> $clientNotes
+ * @property-read int|null $client_notes_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Invoice> $invoices
  * @property-read int|null $invoices_count
  * @method static \Database\Factories\ClientFactory factory($count = null, $state = [])
@@ -105,6 +107,27 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Client withoutTrashed()
  */
 	class Client extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * @property int $id
+ * @property int $client_id
+ * @property string|null $content
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Client $client
+ * @method static \Database\Factories\ClientNoteFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote whereClientId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ClientNote whereUpdatedAt($value)
+ */
+	class ClientNote extends \Eloquent {}
 }
 
 namespace App\Models{
