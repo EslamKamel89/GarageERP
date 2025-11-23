@@ -63,4 +63,10 @@ class UserResource extends Resource {
     public static function getRecordTitle(?Model $record): string|Htmlable|null {
         return $record->name;
     }
+    public static function getPluralLabel(): ?string {
+        return "المستخدمين";
+    }
+    public static function getModelLabel(): string {
+        return 'مستخدم';
+    }
 }
