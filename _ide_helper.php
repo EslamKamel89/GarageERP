@@ -26671,11 +26671,54 @@ namespace Livewire\Features\SupportTesting {
             }
     }
 
-namespace Filament\Pages {
+namespace App\Filament\Resources\Users\Pages {
     /**
      */
-    class Dashboard extends \Filament\Pages\Page {
+    class CreateUser extends \Filament\Resources\Pages\CreateRecord {
             }
+    /**
+     */
+    class EditUser extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListUsers extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewUser extends \Filament\Resources\Pages\ViewRecord {
+            }
+    }
+
+namespace Filament\Resources\Pages {
+    /**
+     * @property-read Schema $form
+     */
+    class CreateRecord extends \Filament\Resources\Pages\Page {
+            }
+    /**
+     */
+    class Page extends \Filament\Pages\Page {
+            }
+    /**
+     * @template TModel of Model = Model
+     * @property-read Schema $form
+     */
+    class EditRecord extends \Filament\Resources\Pages\Page {
+            }
+    /**
+     */
+    class ListRecords extends \Filament\Resources\Pages\Page {
+            }
+    /**
+     * @template TModel of Model = Model
+     * @property-read Schema $form
+     */
+    class ViewRecord extends \Filament\Resources\Pages\Page {
+            }
+    }
+
+namespace Filament\Pages {
     /**
      */
     class Page extends \Filament\Pages\BasePage {
@@ -26683,6 +26726,10 @@ namespace Filament\Pages {
     /**
      */
     class BasePage extends \Livewire\Component {
+            }
+    /**
+     */
+    class Dashboard extends \Filament\Pages\Page {
             }
     /**
      */
