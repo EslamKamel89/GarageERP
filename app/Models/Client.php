@@ -33,6 +33,6 @@ class Client extends Model {
         return $this->belongsTo(CarModel::class);
     }
     public function clientNotes(): HasMany {
-        return $this->hasMany(ClientNote::class, 'client_code_id');
+        return $this->hasMany(ClientNote::class);
     }
 }
