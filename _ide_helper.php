@@ -26671,22 +26671,22 @@ namespace Livewire\Features\SupportTesting {
             }
     }
 
-namespace App\Filament\Resources\Users\Pages {
+namespace App\Filament\Resources\Clients\Pages {
     /**
      */
-    class CreateUser extends \Filament\Resources\Pages\CreateRecord {
+    class CreateClient extends \Filament\Resources\Pages\CreateRecord {
             }
     /**
      */
-    class EditUser extends \Filament\Resources\Pages\EditRecord {
+    class EditClient extends \Filament\Resources\Pages\EditRecord {
             }
     /**
      */
-    class ListUsers extends \Filament\Resources\Pages\ListRecords {
+    class ListClients extends \Filament\Resources\Pages\ListRecords {
             }
     /**
      */
-    class ViewUser extends \Filament\Resources\Pages\ViewRecord {
+    class ViewClient extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 
@@ -26734,6 +26734,39 @@ namespace Filament\Pages {
     /**
      */
     class SimplePage extends \Filament\Pages\BasePage {
+            }
+    }
+
+namespace App\Filament\Resources\Clients\RelationManagers {
+    /**
+     */
+    class ClientNotesRelationManager extends \Filament\Resources\RelationManagers\RelationManager {
+            }
+    }
+
+namespace Filament\Resources\RelationManagers {
+    /**
+     */
+    class RelationManager extends \Livewire\Component {
+            }
+    }
+
+namespace App\Filament\Resources\Users\Pages {
+    /**
+     */
+    class CreateUser extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditUser extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListUsers extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewUser extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 

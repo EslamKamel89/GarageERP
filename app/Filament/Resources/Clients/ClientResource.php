@@ -17,39 +17,38 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
-class ClientResource extends Resource
-{
+class ClientResource extends Resource {
     protected static ?string $model = Client::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
-    protected static ?string $recordTitleAttribute = 'name';
+    protected static ?string $recordTitleAttribute = 'العملاء';
 
-    public static function form(Schema $schema): Schema
-    {
+    protected static string | UnitEnum | null $navigationGroup = "النظام";
+
+    protected static ?string $navigationLabel = "العملاء";
+    protected static ?int $navigationSort = 2;
+    public static function form(Schema $schema): Schema {
         return ClientForm::configure($schema);
     }
 
-    public static function infolist(Schema $schema): Schema
-    {
+    public static function infolist(Schema $schema): Schema {
         return ClientInfolist::configure($schema);
     }
 
-    public static function table(Table $table): Table
-    {
+    public static function table(Table $table): Table {
         return ClientsTable::configure($table);
     }
 
-    public static function getRelations(): array
-    {
+    public static function getRelations(): array {
         return [
             //
         ];
     }
 
-    public static function getPages(): array
-    {
+    public static function getPages(): array {
         return [
             'index' => ListClients::route('/'),
             'create' => CreateClient::route('/create'),
@@ -58,8 +57,7 @@ class ClientResource extends Resource
         ];
     }
 
-    public static function getRecordRouteBindingEloquentQuery(): Builder
-    {
+    public static function getRecordRouteBindingEloquentQuery(): Builder {
         return parent::getRecordRouteBindingEloquentQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
