@@ -31,7 +31,6 @@ class UserResource extends Resource {
     protected static ?string $navigationLabel = "المستخدمون";
 
     public static function form(Schema $schema): Schema {
-        self::$navigationLabel;
         return UserForm::configure($schema);
     }
 

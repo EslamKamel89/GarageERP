@@ -6,28 +6,27 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 
-class UserForm
-{
-    public static function configure(Schema $schema): Schema
-    {
+class UserForm {
+    public static function configure(Schema $schema): Schema {
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->label(__('resources.users.fields.name'))
+                    ->required()
+                    ->prefixIcon(Heroicon::User),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label(__('resources.users.fields.email'))
                     ->email()
-                    ->required(),
-                DateTimePicker::make('email_verified_at'),
+                    ->required()
+                    ->unique(ignoreRecord: true)
+                    ->prefixIcon(Heroicon::AtSymbol),
                 TextInput::make('password')
+                    ->label(__('resources.users.fields.password'))
                     ->password()
-                    ->required(),
-                Textarea::make('two_factor_secret')
-                    ->columnSpanFull(),
-                Textarea::make('two_factor_recovery_codes')
-                    ->columnSpanFull(),
-                DateTimePicker::make('two_factor_confirmed_at'),
+                    ->nullable()
+                    ->dehydrated(fn($state) => filled($state)),
             ]);
     }
 }

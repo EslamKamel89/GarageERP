@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
 Route::get('/', function () {
-    return view('welcome');
+    return  response()->redirectTo('/admin');
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
