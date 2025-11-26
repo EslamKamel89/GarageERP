@@ -16,7 +16,9 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
@@ -27,7 +29,7 @@ class ClientResource extends Resource {
 
     protected static ?string $recordTitleAttribute = 'العملاء';
 
-    protected static string | UnitEnum | null $navigationGroup = "النظام";
+    protected static string | UnitEnum | null $navigationGroup = "العملاء و الفنين";
 
     protected static ?string $navigationLabel = "العملاء";
     protected static ?int $navigationSort = 2;
@@ -63,5 +65,17 @@ class ClientResource extends Resource {
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+    public static function getBreadcrumb(): string {
+        return "عملاء";
+    }
+    public static function getRecordTitle(?Model $record): string|Htmlable|null {
+        return $record->name;
+    }
+    public static function getPluralLabel(): ?string {
+        return "عملاء";
+    }
+    public static function getModelLabel(): string {
+        return 'عميل';
     }
 }

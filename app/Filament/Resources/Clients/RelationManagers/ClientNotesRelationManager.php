@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Clients\RelationManagers;
 
+use Filament\Actions\ActionGroup;
 use Filament\Actions\AssociateAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -19,74 +20,79 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class ClientNotesRelationManager extends RelationManager
-{
+class ClientNotesRelationManager extends RelationManager {
     protected static string $relationship = 'clientNotes';
 
-    public function form(Schema $schema): Schema
-    {
+    public function form(Schema $schema): Schema {
         return $schema
             ->components([
-                Select::make('client_id')
-                    ->relationship('client', 'name')
-                    ->required(),
+                // Select::make('client_id')
+                //     ->relationship('client', 'name')
+                //     ->label('عميل')
+                //     ->searchable()
+                //     ->preload()
+                //     ->required(),
                 Textarea::make('content')
+                    ->label('ملاحظات')
                     ->columnSpanFull(),
             ]);
     }
 
-    public function infolist(Schema $schema): Schema
-    {
+    public function infolist(Schema $schema): Schema {
         return $schema
             ->components([
                 TextEntry::make('client.name')
-                    ->label('Client'),
+                    ->label('الاسم'),
                 TextEntry::make('content')
+                    ->label('ملاحظات')
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('created_at')
+                    ->label('تاريخ الانشاء')
                     ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                    ->placeholder('-')
             ]);
     }
 
-    public function table(Table $table): Table
-    {
+    public function table(Table $table): Table {
         return $table
             ->recordTitleAttribute('content')
             ->columns([
-                TextColumn::make('client.name')
-                    ->searchable(),
+                // TextColumn::make('client.name')
+                //     ->label('الاسم')
+                //     ->searchable(),
+                TextColumn::make('content')
+                    ->label('ملاحظات'),
                 TextColumn::make('created_at')
+                    ->label('تاريخ الانشاء')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->headerActions([
                 CreateAction::make(),
-                AssociateAction::make(),
+                // AssociateAction::make(),
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
-                DissociateAction::make(),
-                DeleteAction::make(),
+                ActionGroup::make([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    // DissociateAction::make(),
+                    DeleteAction::make(),
+                ]),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DissociateBulkAction::make(),
+                    // DissociateBulkAction::make(),
                     DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+
+    public static function getModelLabel(): string {
+        return 'ملاحظة';
     }
 }
