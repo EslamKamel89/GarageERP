@@ -26751,6 +26751,25 @@ namespace Filament\Resources\RelationManagers {
             }
     }
 
+namespace App\Filament\Resources\Technicians\Pages {
+    /**
+     */
+    class CreateTechnician extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditTechnician extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListTechnicians extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewTechnician extends \Filament\Resources\Pages\ViewRecord {
+            }
+    }
+
 namespace App\Filament\Resources\Users\Pages {
     /**
      */
