@@ -26671,22 +26671,22 @@ namespace Livewire\Features\SupportTesting {
             }
     }
 
-namespace App\Filament\Resources\Clients\Pages {
+namespace App\Filament\Resources\Categories\Pages {
     /**
      */
-    class CreateClient extends \Filament\Resources\Pages\CreateRecord {
+    class CreateCategory extends \Filament\Resources\Pages\CreateRecord {
             }
     /**
      */
-    class EditClient extends \Filament\Resources\Pages\EditRecord {
+    class EditCategory extends \Filament\Resources\Pages\EditRecord {
             }
     /**
      */
-    class ListClients extends \Filament\Resources\Pages\ListRecords {
+    class ListCategories extends \Filament\Resources\Pages\ListRecords {
             }
     /**
      */
-    class ViewClient extends \Filament\Resources\Pages\ViewRecord {
+    class ViewCategory extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 
@@ -26734,6 +26734,25 @@ namespace Filament\Pages {
     /**
      */
     class SimplePage extends \Filament\Pages\BasePage {
+            }
+    }
+
+namespace App\Filament\Resources\Clients\Pages {
+    /**
+     */
+    class CreateClient extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditClient extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListClients extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewClient extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 
