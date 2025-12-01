@@ -26671,22 +26671,22 @@ namespace Livewire\Features\SupportTesting {
             }
     }
 
-namespace App\Filament\Resources\Categories\Pages {
+namespace App\Filament\Resources\CarModels\Pages {
     /**
      */
-    class CreateCategory extends \Filament\Resources\Pages\CreateRecord {
+    class CreateCarModel extends \Filament\Resources\Pages\CreateRecord {
             }
     /**
      */
-    class EditCategory extends \Filament\Resources\Pages\EditRecord {
+    class EditCarModel extends \Filament\Resources\Pages\EditRecord {
             }
     /**
      */
-    class ListCategories extends \Filament\Resources\Pages\ListRecords {
+    class ListCarModels extends \Filament\Resources\Pages\ListRecords {
             }
     /**
      */
-    class ViewCategory extends \Filament\Resources\Pages\ViewRecord {
+    class ViewCarModel extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 
@@ -26737,6 +26737,25 @@ namespace Filament\Pages {
             }
     }
 
+namespace App\Filament\Resources\Categories\Pages {
+    /**
+     */
+    class CreateCategory extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditCategory extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListCategories extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewCategory extends \Filament\Resources\Pages\ViewRecord {
+            }
+    }
+
 namespace App\Filament\Resources\Clients\Pages {
     /**
      */
@@ -26767,6 +26786,25 @@ namespace Filament\Resources\RelationManagers {
     /**
      */
     class RelationManager extends \Livewire\Component {
+            }
+    }
+
+namespace App\Filament\Resources\Labours\Pages {
+    /**
+     */
+    class CreateLabour extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditLabour extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListLabours extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewLabour extends \Filament\Resources\Pages\ViewRecord {
             }
     }
 
