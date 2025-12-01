@@ -26770,6 +26770,25 @@ namespace Filament\Resources\RelationManagers {
             }
     }
 
+namespace App\Filament\Resources\Products\Pages {
+    /**
+     */
+    class CreateProduct extends \Filament\Resources\Pages\CreateRecord {
+            }
+    /**
+     */
+    class EditProduct extends \Filament\Resources\Pages\EditRecord {
+            }
+    /**
+     */
+    class ListProducts extends \Filament\Resources\Pages\ListRecords {
+            }
+    /**
+     */
+    class ViewProduct extends \Filament\Resources\Pages\ViewRecord {
+            }
+    }
+
 namespace App\Filament\Resources\Technicians\Pages {
     /**
      */

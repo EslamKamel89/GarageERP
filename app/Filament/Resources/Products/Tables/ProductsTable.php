@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
+use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -12,49 +14,46 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ProductsTable
-{
-    public static function configure(Table $table): Table
-    {
+class ProductsTable {
+    public static function configure(Table $table): Table {
         return $table
             ->columns([
                 TextColumn::make('category.name')
+                    ->label('قسم')
                     ->searchable(),
                 TextColumn::make('code')
+                    ->label('الكود')
                     ->searchable(),
                 TextColumn::make('name')
+                    ->label('الاسم')
                     ->searchable(),
                 TextColumn::make('buy_price')
-                    ->money()
+                    ->label('سعر الشراء')
+                    ->money('EGP')
                     ->sortable(),
                 TextColumn::make('sell_price')
-                    ->money()
+                    ->label('سعر البيع')
+                    ->money('EGP')
                     ->sortable(),
                 TextColumn::make('quantity')
+                    ->label('العدد')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('min_stock_quantity')
+                    ->label('حد المخزون الأدنى')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                ActionGroup::make([
+                    ViewAction::make(),
+                    EditAction::make(),
+                    DeleteAction::make(),
+                ]),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

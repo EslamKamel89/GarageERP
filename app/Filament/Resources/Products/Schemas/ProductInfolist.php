@@ -6,40 +6,37 @@ use App\Models\Product;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class ProductInfolist
-{
-    public static function configure(Schema $schema): Schema
-    {
+class ProductInfolist {
+    public static function configure(Schema $schema): Schema {
         return $schema
             ->components([
                 TextEntry::make('category.name')
-                    ->label('Category')
+                    ->label('قسم')
+
                     ->placeholder('-'),
-                TextEntry::make('code'),
-                TextEntry::make('name'),
+                TextEntry::make('code')->label('الكود'),
+                TextEntry::make('name')->label('الاسم'),
                 TextEntry::make('description')
+                    ->label('الوصف')
                     ->placeholder('-')
                     ->columnSpanFull(),
                 TextEntry::make('buy_price')
-                    ->money(),
+                    ->label('سعر الشراء')
+                    ->money('EGP'),
                 TextEntry::make('sell_price')
-                    ->money(),
+                    ->label('سعر البيع')
+                    ->money('EGP'),
                 TextEntry::make('quantity')
+                    ->label('العدد')
                     ->numeric(),
                 TextEntry::make('min_stock_quantity')
+                    ->label('حد المخزون الأدنى')
                     ->numeric(),
                 TextEntry::make('notes')
+                    ->label('ملاحظات')
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('deleted_at')
-                    ->dateTime()
-                    ->visible(fn (Product $record): bool => $record->trashed()),
-                TextEntry::make('created_at')
-                    ->dateTime()
-                    ->placeholder('-'),
-                TextEntry::make('updated_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+
             ]);
     }
 }
