@@ -15,7 +15,7 @@ namespace App\Models{
 /**
  * @property int $id
  * @property string $name
- * @property array<array-key, mixed> $year_range
+ * @property array<array-key, mixed>|null $year_range
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -335,6 +335,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  */
-	class User extends \Eloquent {}
+	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser {}
 }
 

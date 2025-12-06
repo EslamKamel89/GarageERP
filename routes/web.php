@@ -6,10 +6,25 @@ use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
+use Illuminate\Support\Facades\Artisan;
+
 
 Route::get('/', function () {
     return  response()->redirectTo('/admin');
 })->name('home');
+
+
+Route::get('/run-migrations', function () {
+
+    Artisan::call('migrate', [
+        '--force' => true,
+    ]);
+
+    return response()->json([
+        'status' => 'success',
+        'output' => Artisan::output(),
+    ]);
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
