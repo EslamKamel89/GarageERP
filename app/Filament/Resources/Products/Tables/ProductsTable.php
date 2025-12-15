@@ -28,6 +28,7 @@ class ProductsTable {
                     ->label('الاسم')
                     ->searchable(),
                 TextColumn::make('buy_price')
+                    ->hidden(auth()->user()->email != 'abdo@cardoctor.com')
                     ->label('سعر الشراء')
                     ->money('EGP')
                     ->sortable(),

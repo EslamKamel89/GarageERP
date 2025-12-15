@@ -25,9 +25,12 @@ class ProductForm {
                     ->columnSpanFull(),
                 TextInput::make('buy_price')
                     ->label('سعر الشراء')
-                    ->required()
+                    ->visible(auth()->user()->email == 'abdo@cardoctor.com')
+                    ->default(0)
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('$')
+                    ->dehydrated(true)
+                    ->dehydrateStateUsing(fn($state) => $state ?? 0),
                 TextInput::make('sell_price')
                     ->label('سعر البيع')
                     ->required()

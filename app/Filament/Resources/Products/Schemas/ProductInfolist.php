@@ -22,6 +22,7 @@ class ProductInfolist {
                     ->columnSpanFull(),
                 TextEntry::make('buy_price')
                     ->label('سعر الشراء')
+                    ->hidden(auth()->user()->email != 'abdo@cardoctor.com')
                     ->money('EGP'),
                 TextEntry::make('sell_price')
                     ->label('سعر البيع')
